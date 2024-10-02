@@ -13,7 +13,7 @@ use common\components\Dump;
 
 class XlatController extends Controller
 {
-	const ROOT = '/home/brownhanky/bhjs/BHSITE/i18n/';
+	const ROOT = '/home/me/bhjs/BHSITE/i18n/';
 
 	// Supported languages
 	public $langs;
@@ -60,16 +60,16 @@ class XlatController extends Controller
 
 	/*---------------------------------------------------------------------------------------------------------------*/
 	// RUN ONCE. LOAD ALL PILOT STRINGS INTO HankLang
-	// 1. Copy #/Users/brownhanky/home/brownhanky/bhjs/BHCHAT20/shared/localization/master to ~/BHCHATXLAT
+	// 1. Copy #/Users/me/home/me/bhjs/BHCHAT20/shared/localization/master to ~/BHCHATXLAT
 	// 2. Empty HankLang
 	// 3. bh i18n/xlat/pilot
 	public function actionPilot(){
 		//die('THIS IS DONE I THINK ?'); Nope. Still Work In Progress
 		foreach(['en','es','de','fr','it'] AS $iso){
-			$path= '/home/brownhanky/BHCHATXLAT/master/' . $iso . '.json';
+			$path= '/home/me/BHCHATXLAT/master/' . $iso . '.json';
 			$this->_pilot2site($path,$iso);
 		}
-		//$path='/home/brownhanky/sites/www/test.json'; // BHCHAT20 MASTER
+		//$path='/home/me/sites/www/test.json'; // BHCHAT20 MASTER
 		//$a = $this->_pilot2site($path,'en');
 		return 0;
 	}
@@ -266,17 +266,17 @@ class XlatController extends Controller
 
 	// Problem. Why does english have more keys now?
 	/*
-	 *  798 written to /home/brownhanky/bhjs/BHSITE//i18n/lang/en-us/index.js
-		725 written to /home/brownhanky/bhjs/BHSITE//i18n/lang/es-es/index.js
-		725 written to /home/brownhanky/bhjs/BHSITE//i18n/lang/de-de/index.js
-		725 written to /home/brownhanky/bhjs/BHSITE//i18n/lang/fr-fr/index.js
-		725 written to /home/brownhanky/bhjs/BHSITE//i18n/lang/it-it/index.js
-		725 written to /home/brownhanky/bhjs/BHSITE//i18n/lang/pt-pt/index.js
-		725 written to /home/brownhanky/bhjs/BHSITE//i18n/lang/ru-ru/index.js
+	 *  798 written to /home/me/bhjs/BHSITE//i18n/lang/en-us/index.js
+		725 written to /home/me/bhjs/BHSITE//i18n/lang/es-es/index.js
+		725 written to /home/me/bhjs/BHSITE//i18n/lang/de-de/index.js
+		725 written to /home/me/bhjs/BHSITE//i18n/lang/fr-fr/index.js
+		725 written to /home/me/bhjs/BHSITE//i18n/lang/it-it/index.js
+		725 written to /home/me/bhjs/BHSITE//i18n/lang/pt-pt/index.js
+		725 written to /home/me/bhjs/BHSITE//i18n/lang/ru-ru/index.js
 	 */
 	public function actionCmp(){
-		$en=explode(PHP_EOL, file_get_contents('/home/brownhanky/bhjs/BHSITE/i18n/lang/en-us/index.js'));
-		$fr=explode(PHP_EOL, file_get_contents('/home/brownhanky/bhjs/BHSITE/i18n/lang/fr-fr/index.js'));
+		$en=explode(PHP_EOL, file_get_contents('/home/me/bhjs/BHSITE/i18n/lang/en-us/index.js'));
+		$fr=explode(PHP_EOL, file_get_contents('/home/me/bhjs/BHSITE/i18n/lang/fr-fr/index.js'));
 
 		for($i=0; $i< count($en); $i++){
 			if ( ! str_starts_with(trim($en[$i]),"'")){
